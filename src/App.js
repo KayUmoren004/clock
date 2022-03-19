@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+//Dependencies
+import styled from "styled-components";
+import Clock from "react-live-clock";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <h1>
+        <ClockComponent format={"h:mm:ssa"} interval={1000} ticking={true} />
+      </h1>
+    </Container>
   );
-}
+};
+
+const Container = styled.div`
+  display: flex;
+  background-color: #0d0010;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+const ClockComponent = styled(Clock)`
+  color: white;
+  font-weight: 900;
+  font-size: 160px;
+`;
 
 export default App;
